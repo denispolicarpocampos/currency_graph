@@ -1,1 +1,7 @@
 <p>Currencies page</p>
+
+<%= link_to_if(params[:id], "Graph of #{params[:id]}") %>
+
+<a class=”btn btn-primary” href=<%= currency_path("EUR") %> role=”button”>EUR</a>
+<a class=”btn btn-primary” href=<%=currency_path("USD") %> role=”button”>USD</a>
+<a class=”btn btn-primary” href=<%=currency_path("AUD") %> role=”button”>AUD</a>
