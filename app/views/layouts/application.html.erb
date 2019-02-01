@@ -6,10 +6,16 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel=”stylesheet” href=”https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class='container'>
+      <div class='page-header'>
+        <h1>Currencies page</h1>
+      </div>
+      <%= yield %>
+    </div>
   </body>
 </html>
