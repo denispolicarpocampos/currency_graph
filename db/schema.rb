@@ -16,12 +16,9 @@ ActiveRecord::Schema.define(version: 2019_02_01_024018) do
   enable_extension "plpgsql"
 
   create_table "currencies", force: :cascade do |t|
-    t.string "type"
-    t.string "integer"
-    t.string "value"
-    t.string "float"
-    t.string "date"
-    t.string "datetime"
+    t.string "currency_kind"
+    t.float "value"
+    t.datetime "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
