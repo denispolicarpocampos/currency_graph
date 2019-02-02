@@ -16,7 +16,7 @@ def insert_currencies(currencies)
 
   save_values.each do |v|
     ActiveRecord::Base.transaction do
-      Currency.create(currency_kind: v['currency'], date: v['date'], value: v['value'].to_f)
+      Currency.create(currency_kind: v['currency'].split('/')[0].downcase, date: v['date'], value: v['value'].to_f)
       print_currency(v['currency'].capitalize, v['date'], v['value'])
     end
   end
@@ -28,7 +28,7 @@ def select_values(currencies)
 end
 
 def check_currency(currency)
-  Currency.exists?(currency_kind: currency['currency'], date: currency['date'], value: currency['value'])
+  Currency.exists?(currency_kind: currency['currency'].split('/')[0].downcase, date: currency['date'], value: currency['value'])
 end
 
 def print_currency(currency, date, value)

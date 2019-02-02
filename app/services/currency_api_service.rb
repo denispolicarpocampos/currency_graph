@@ -14,9 +14,4 @@ class CurrencyApiService < ApplicationService
   rescue RestClient::ExceptionWithResponse => e
     e.response
   end
-
-  def success?
-    @values.present?
-  end
-
 end
