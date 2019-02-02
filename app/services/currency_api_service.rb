@@ -12,7 +12,7 @@ class CurrencyApiService < ApplicationService
     res = RestClient.get url
     values = JSON.parse(res.body)['currency']
   rescue RestClient::ExceptionWithResponse => e
-    puts "@@@@@"
+    e.response
   end
 
   def success?
