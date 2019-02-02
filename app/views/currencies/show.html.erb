@@ -1,7 +1,8 @@
 <% if params[:id] %>
-<h3> Graph of <%= params[:id] %> </h3>
+  <h3> Graph of <%= params[:id] %> </h3>
+  <%= line_chart @currencies %>
 <% else %>
-<h3> Choose a currency please: </h3>
+  <h3> Choose a currency please: </h3>
 <% end %>
 
 <a class='btn btn-primary' href=<%= currency_path("EUR") %> role='button'>EUR</a>
