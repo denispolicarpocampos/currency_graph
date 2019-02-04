@@ -6,7 +6,10 @@ feature "User view links" do
     expect(page).to have_link("EUR")
     expect(page).to have_link("USD")
     expect(page).to have_link("AUD")
-  end 
+    expect(page).to have_link("Today")
+    expect(page).to have_link("Yesterday")
+    expect(page).to have_link("1 week")
+  end
 end
 
 feature "User view titles" do
