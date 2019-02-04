@@ -1,6 +1,13 @@
 <% if params[:id] %>
   <h3> Graph of <%= params[:id] %> </h3>
-  <%= line_chart @currencies %>
+  <div class='days'>
+    <%= link_to  "1 week", "/currencies/#{params[:id]}?range=2", remote: true %>
+    <%= link_to  "Yesterday", "/currencies/#{params[:id]}?range=1", remote: true %>
+    <%= link_to  "Today", "/currencies/#{params[:id]}?range=0", remote: true %>
+  </div>
+  <div class='graph' >
+    <%= render 'chart' %>
+  </div>
 <% else %>
   <h3> Choose a currency please: </h3>
 <% end %>
