@@ -2,16 +2,16 @@ require 'rails_helper'
 
 describe CurrenciesController, type: :controller do 
 
-  it 'should display the bitcoin charts' do
+  it 'should display the eur charts' do
     should_display_charts('eur')
   end
 
-  it 'should display the ethereum charts' do
-    should_display_charts('ethereum')
+  it 'should display the usd charts' do
+    should_display_charts('usd')
   end
 
-  it 'should display the nasdaq charts' do
-    should_display_charts('nasdaq')
+  it 'should display the aud charts' do
+    should_display_charts('aud')
   end
 
   private

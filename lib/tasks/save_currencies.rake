@@ -15,6 +15,7 @@ def insert_currencies(currencies)
   return puts 'Currencies already exists on db!' if save_values.blank?
 
   save_values.each do |v|
+    v['date'] = "#{v['date']} +0300"
     ActiveRecord::Base.transaction do
       Currency.create(currency_kind: v['currency'].split('/')[0].downcase, date: v['date'], value: v['value'].to_f)
       print_currency(v['currency'].capitalize, v['date'], v['value'])
