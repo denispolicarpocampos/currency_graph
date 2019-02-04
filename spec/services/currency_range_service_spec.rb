@@ -5,15 +5,19 @@ describe 'CurrencyRangeService' do
     let!(:currency_1) { create(:currency, date: DateTime.now) }
     let!(:currency_2) { create(:currency, date: DateTime.now - 1.days) }
     let!(:currency_3) { create(:currency, date: DateTime.now - 7.days) }
-    let!(:currency_4) { create(:currency, date: DateTime.now.end_of_day - 7.days) }
-    let!(:currency_5) { create(:currency, date: DateTime.now - 6.days) }
-    let!(:currency_6) { create(:currency, date: DateTime.now - 5.days) }
-    let!(:currency_7) { create(:currency, date: DateTime.now - 4.days) }
-    let!(:currency_8) { create(:currency, date: DateTime.now - 3.days) }
 
+    it 'to get currency of today' do
+      res = { currency_1['date'] =>currency_1['value']}
+      expect(CurrencyRangeService.call('eur', 0).to_s).to eql("#{res}")
+    end
+
+    it 'to get currency of today' do
+      res = { currency_2['date'] =>currency_2['value']}
+      expect(CurrencyRangeService.call('eur', 1).to_s).to eql("#{res}")
+    end
 
     it 'to get currencies of 7 days' do
-      res = { currency_3['date'] => currency_3['value'] }
+      res = { currency_1['date'] =>currency_1['value'] , currency_2['date'] =>currency_2['value'], currency_3['date'] => currency_3['value'] }
       expect(CurrencyRangeService.call('eur', 2).to_s).to eql("#{res}")
     end
   end
